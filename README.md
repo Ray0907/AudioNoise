@@ -40,3 +40,15 @@ much -- than I do about python.  It started out as my typical "google
 and do the monkey-see-monkey-do" kind of programming, but then I cut out
 the middle-man -- me -- and just used Google Antigravity to do the audio
 sample visualizer.
+
+## macOS
+
+The Makefile uses `aplay` which is Linux-only. On macOS, you can play
+the output with:
+
+    ffmpeg -y -v fatal -f s32le -ar 48000 -ac 1 -i output.raw -f mp3 - | afplay -
+
+Or convert to mp3 first and play that:
+
+    make ts9
+    afplay ts9.mp3

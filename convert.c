@@ -22,6 +22,7 @@ typedef unsigned int uint;
 #include "fm.h"
 #include "phaser.h"
 #include "discont.h"
+#include "ts9.h"
 
 struct {
 	float attack, decay, value;
@@ -48,7 +49,7 @@ struct effect {
 	float (*step)(float);
 } effects[] = {
 	EFF(discont), EFF(phaser), EFF(flanger), EFF(echo), EFF(fm),
-	EFF(magnitude),
+	EFF(ts9), EFF(magnitude),
 };
 
 #define UPDATE(x) x += 0.001 * (target_##x - x)
